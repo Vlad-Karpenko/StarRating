@@ -23,7 +23,7 @@ export default class Template {
 
     createResultTemplate(ratingData) {
         const template = `<div class="resultRating">
-                            <span>Оценка: ${ratingData}</span>
+                            <span>Средняя оценка: ${ratingData}</span>
                         </div>`;
         return template;
     }
