@@ -15,7 +15,9 @@ export default class View {
     init(resultRating) {
         this._renderStars();
         this._renderTitle('.content');
-        this._renderAvgRating(resultRating, '.content')
+        this._renderAvgRating(resultRating, '.content');
+        this._mouseOver();
+        this._mouseOut();
     }
 
     _renderTitle(parentSelector) {
@@ -52,6 +54,12 @@ export default class View {
             case 'addRating':
                 this._addRating(handler);
                 break;
+            case 'mouseOver':
+                this._mouseOver();
+                break;
+            case 'mouseOut':
+                this._mouseOut();
+                break;
             default:
                 console.log("Unknown event");
         }
@@ -62,6 +70,33 @@ export default class View {
             this._options.stars[i].addEventListener('click', (event) => {
                 const rating = this._options.stars[i].dataset.rating;
                 handler(rating);
+            });
+        }
+    }
+
+    _mouseOver() {
+        for (let i = 0; i < this._options.stars.length; i++) {
+            this._options.stars[i].addEventListener('mouseover', (event) => {
+                this.siblings = [this._options.stars[i]];
+                let sibling = this._options.stars[i];
+                while (sibling.previousSibling) {
+                    sibling = sibling.previousSibling;
+                    sibling.nodeType == 1 && this.siblings.push(sibling);
+                }
+                for (let y = 0; y < this.siblings.length; y++) {
+                    this.siblings[y].classList.add('hoverStars');
+                }
+            });
+        }
+    }
+
+    _mouseOut() {
+        for (let i = 0; i < this._options.stars.length; i++) {
+            this._options.stars[i].addEventListener('mouseout', (event) => {
+                for (let y = 0; y < this.siblings.length; y++) {
+                    this.siblings[y].classList.remove('hoverStars');
+                }
+
             });
         }
     }
