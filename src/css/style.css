@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+    background-color: #473952;
+}
+
+.content {
+    padding: 30px 0 10px;
+    margin-top: 100px;
+    text-align: center;
+    color: white;
+}
+
+.content .stars {
+    margin: 20px;
+}
+
+.content .stars i {
+    color: #fff36f;
+    font-size: 30px;
+    margin: 0 5px;
+}
+
+.content .stars i:hover {
+    color: #f9d702;
+    cursor: pointer;
+}
+
+.content .notification {
+    width: 400px;
+    margin: 10px auto;
+}
+
+.resultRating {
+    text-align: center;
+    color: white;
+    font-size: 26px;
+}
