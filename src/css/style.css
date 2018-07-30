@@ -20,8 +20,8 @@
     margin: 0 5px;
 }
 
-.content .stars i:hover {
-    color: #f9d702;
+.hoverStars {
+    color: #f9d702 !important;
     cursor: pointer;
 }
 
